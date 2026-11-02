@@ -1,0 +1,28 @@
+# Local environments and Python caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+.claude/
+.playwright-mcp/
+skills-lock.json
+
+# Design research and intermediate artifacts
+/dribbble-*.yml
+/dribbble-*.png
+/reference-*.png
+/portfolio-*.png
+/split-text.yml
+/ITERATION-2.md
+/assets/projects/orders-admin-mobile.png
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
