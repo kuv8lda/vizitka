@@ -12,11 +12,11 @@
 Полная поддержка мобильных устройств. На экранах меньше 900px сложная сетка перестраивается в удобную колонку.
 | Компьютер | Мобильный |
 | :---: | :---: |
-| ![Desktop](assets/portfolio-frame-2.png) | ![Mobile](assets/portfolio-390x844.png) |
+| [Desktop](assets/portfolio-frame-2.png) | [Mobile](assets/portfolio-390x844.png) |
 
 **Секция проектов**
 Презентация работ в виде окон браузера (Browser Frame) с чередованием сторон (Z-pattern).
-![Проекты](assets/portfolio-work.png)
+[Проекты](assets/portfolio-work.png)
 
 ## Технические особенности
 
