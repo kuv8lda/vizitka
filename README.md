@@ -6,7 +6,7 @@
 
 **Главный экран (Кинематографичный скролл)**
 Смена трех кадров с эффектом параллакса реализована на нативном `position: sticky` и `requestAnimationFrame`.
-![Главный экран](vizitka.png)
+![Главный экран](assets/vizitka.png)
 
 **Кадр 2: Telegram-боты**
 ![Кадр 2](assets/portfolio-frame-2.png)
