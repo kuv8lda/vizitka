@@ -71,7 +71,15 @@ This command overwrites `assets/projects/vizitka.png` with a 1440 × 900 screens
 ## Checking changes
 
 Check all three frames while scrolling, project links, the video, and the FAQ. Repeat the checks on a narrow screen and with `prefers-reduced-motion` enabled. Without JavaScript, all three frames should appear one after another.
+<<<<<<< HEAD
 
 There are no automated tests in this project.
 
 Tests use mocks and do not require network access. Additional decisions are documented in [DECISIONS.md](DECISIONS.md), and Telegram interface guidelines are in [docs/TELEGRAM_UX.md](docs/TELEGRAM_UX.md).
+=======
+
+There are no automated tests in this project.
+
+Tests use mocks and do not require network access. Additional decisions are documented in [DECISIONS.md](DECISIONS.md), and Telegram interface guidelines are in [docs/TELEGRAM_UX.md](docs/TELEGRAM_UX.md).
+
+>>>>>>> 80420f5 (Delete artifacts and local scripts)
