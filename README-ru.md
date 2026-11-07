@@ -6,17 +6,17 @@
 
 **Главный экран (Кинематографичный скролл)**
 Смена трех кадров с эффектом параллакса реализована на нативном `position: sticky` и `requestAnimationFrame`.
-[Главный экран](assets/portfolio-desktop.png)
+![Главный экран](assets/portfolio-desktop.png)
 
 **Адаптивность**
 Полная поддержка мобильных устройств. На экранах меньше 900px сложная сетка перестраивается в удобную колонку.
 | Компьютер | Мобильный |
 | :---: | :---: |
-| [Desktop](assets/portfolio-frame-2.png) | [Mobile](assets/portfolio-390x844.png) |
+| ![Компьютер](assets/portfolio-frame-2.png) | ![Мобильный](assets/portfolio-390x844.png) |
 
 **Секция проектов**
 Презентация работ в виде окон браузера (Browser Frame) с чередованием сторон (Z-pattern).
-[Проекты](assets/portfolio-work.png)
+![Проекты](assets/portfolio-work.png)
 
 ## Технические особенности
 
