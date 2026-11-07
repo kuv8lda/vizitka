@@ -3,6 +3,7 @@
 Сайт Python-разработчика на HTML, CSS и JavaScript. Сборщик и npm-зависимости не нужны.
 
 ## Демонстрация
+https://github.com/user-attachments/assets/600943f2-fcf1-4420-9347-aa118f0b2ba8
 
 ## Запуск
 
