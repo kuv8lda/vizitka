@@ -37,13 +37,14 @@
     frames.forEach((frame, index) => {
       const distance = position - index;
 
-      const opacity = Math.max(0, 1 - Math.abs(distance) * 1.5);
-
+      const isActive = index === active;
+      const opacity = isActive ? 1 - Math.abs(distance) : 0;
       const offset = -distance * 40;
 
+      frame.classList.toggle('is-active', isActive);
       frame.style.opacity = opacity.toFixed(3);
-      frame.style.visibility = opacity > 0.001 ? 'visible' : 'hidden';
-      frame.style.pointerEvents = opacity > 0.5 ? 'auto' : 'none';
+      frame.style.visibility = isActive ? 'visible' : 'hidden';
+      frame.style.pointerEvents = isActive ? 'auto' : 'none';
       frame.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
 
       if (active !== currentFrame) {
@@ -54,7 +55,6 @@
     currentFrame = active;
     frameNumber.textContent = String(active + 1).padStart(2, '0');
     progressBar.style.transform = `scaleX(${Math.max(.02, progress)})`;
-    updateSound(progress);
   }
 
   function scheduleScene() {
@@ -68,7 +68,6 @@
     new IntersectionObserver(([entry]) => {
       sceneVisible = entry.isIntersecting;
       if (sceneVisible) scheduleScene();
-      else stopSound();
     }).observe(film);
   }
   if ('ResizeObserver' in window) new ResizeObserver(measure).observe(screen);
@@ -104,71 +103,9 @@
   addEventListener('scroll', resetMagnetic, { passive: true });
   finePointer.addEventListener('change', resetMagnetic);
 
-  const soundButton = document.querySelector('.sound');
-  const soundLabel = document.querySelector('[data-sound-label]');
-  let audio = null;
-  let gain = null;
-  let soundOn = false;
-  let soundBusy = false;
-  function updateSound(progress) {
-    if (audio && gain && soundOn) {
-      gain.gain.setTargetAtTime(.018 + Math.sin(progress * Math.PI) * .012, audio.currentTime, .4);
-    }
-  }
-  function stopSound() {
-    if (!audio || !soundOn) return;
-    soundOn = false;
-    audio.suspend().catch(() => {});
-    setSoundLabel();
-  }
-  function setSoundLabel() {
-    soundButton.setAttribute('aria-pressed', String(soundOn));
-    soundButton.setAttribute('aria-label', soundOn ? 'Выключить фоновый звук' : 'Включить фоновый звук');
-    soundLabel.textContent = soundOn ? 'вкл.' : 'выкл.';
-  }
-  soundButton.addEventListener('click', async () => {
-    if (soundBusy) return;
-    soundBusy = true;
-    try {
-      if (!audio) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContext) throw new Error('Web Audio недоступен');
-        audio = new AudioContext();
-        gain = audio.createGain();
-        gain.gain.value = 0;
-        gain.connect(audio.destination);
-        [110, 164.81, 220.3].forEach(frequency => {
-          const oscillator = audio.createOscillator();
-          oscillator.type = 'sine';
-          oscillator.frequency.value = frequency;
-          const voice = audio.createGain();
-          voice.gain.value = .2;
-          oscillator.connect(voice).connect(gain);
-          oscillator.start();
-        });
-      }
-      if (soundOn) {
-        await audio.suspend();
-        soundOn = false;
-      } else {
-        await audio.resume();
-        soundOn = true;
-        gain.gain.setTargetAtTime(.022, audio.currentTime, .8);
-        if (document.hidden) { await audio.suspend(); soundOn = false; }
-      }
-      setSoundLabel();
-    } catch (error) {
-      soundOn = false;
-      setSoundLabel();
-      soundLabel.textContent = 'недоступен';
-      soundButton.disabled = true;
-      console.warn('Фоновый звук недоступен:', error);
-    } finally { soundBusy = false; }
-  });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       resetMagnetic();
-      stopSound();
     }
   });
 

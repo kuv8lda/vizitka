@@ -26,3 +26,7 @@ skills-lock.json
 .idea/
 .DS_Store
 Thumbs.db
+
+.rtt-cache/
+.rtt/
+CLAUDE.md

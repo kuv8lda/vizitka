@@ -80,6 +80,7 @@ nav a, .header-contact { font-size: 13px; }
 .frames { position: absolute; inset: 165px var(--space) 110px; }
 .frame { position: absolute; inset: 0; display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 20px; opacity: 0; visibility: hidden; pointer-events: none; }
 .frame--first { opacity: 1; visibility: visible; pointer-events: auto; }
+.frame.is-active { z-index: 10; }
 .frame-copy { position: relative; z-index: 2; }
 .chapter { font-size: 12px; margin-bottom: 25px; color: var(--accent); }
 .frame h1, .frame h2 { font-size: clamp(64px, 7.7vw, 128px); font-weight: 500; }
@@ -112,14 +113,6 @@ nav a, .header-contact { font-size: 13px; }
 .film-position { display: flex; align-items: center; gap: 13px; font-size: 10px; color: var(--muted); }
 .film-track { width: 130px; height: 1px; background: #5B8CFF44; overflow: hidden; }
 .film-track i { display: block; width: 100%; height: 1px; background: var(--accent); transform: scaleX(.02); transform-origin: left; }
-.sound { border: 0; background: none; display: flex; align-items: center; gap: 8px; font-size: 10px; cursor: pointer; padding: 10px 0; min-height: 44px; }
-.sound > span:first-of-type { color: var(--muted); }
-.sound-bars { display: flex; align-items: center; gap: 3px; height: 15px; margin-left: 7px; }
-.sound-bars i { width: 2px; background: var(--accent); height: 5px; transition: height .3s; }
-.sound-bars i:nth-child(2) { height: 12px; }
-.sound[aria-pressed=true] .sound-bars i:first-child { height: 14px; }
-.sound[aria-pressed=true] .sound-bars i:nth-child(2) { height: 6px; }
-.sound[aria-pressed=true] .sound-bars i:last-child { height: 10px; }
 
 .art--dialog, .art--data { display: grid; place-items: center; }
 .chat-window { width: 90%; padding: 25px; border: 1px solid #5B8CFF30; border-radius: 20px; background: linear-gradient(135deg, #192338, #151A22); box-shadow: var(--shadow); transform: rotate(-4deg); }
@@ -297,7 +290,7 @@ nav a, .header-contact { font-size: 13px; }
   .art--dialog{position:relative;right:auto;bottom:auto;aspect-ratio:auto;max-width:390px;width:100%;margin-top:26px}
   .core span{font-size:58px}.satellite{font-size:8px;padding:5px 12px}
   .screen-bottom{bottom:22px;gap:12px}.scroll-hint{font-size:0}.scroll-hint span{font-size:20px;margin:0}
-  .film-track{width:65px}.film-position{gap:8px;font-size:9px}.sound{font-size:11px}
+  .film-track{width:65px}.film-position{gap:8px;font-size:9px}
   .chat-window{padding:14px;transform:none}.chat-caption{font-size:10px;margin-bottom:10px}
   .chat-head{display:none}.bubble{font-size:11px;margin:8px 0;padding:8px 10px;line-height:1.4}.chat-foot{display:none}
   .code-line{font-size:8px}.pipeline small{font-size:6px}.pipeline>div{font-size:8px;padding:7px}.terminal-line{font-size:6px;margin-top:10px}
@@ -313,7 +306,7 @@ html:not(.js) .film,.static-scene .film{height:auto;min-height:0}
 html:not(.js) .screen,.static-scene .screen{position:relative;height:auto;min-height:0;padding:160px var(--space) 90px}
 html:not(.js) .frames,.static-scene .frames{position:relative;inset:auto}
 html:not(.js) .frame,.static-scene .frame{position:relative;inset:auto;opacity:1!important;visibility:visible!important;pointer-events:auto!important;min-height:550px;transform:none!important}
-html:not(.js) .film-position,.static-scene .film-position,html:not(.js) .sound{display:none}
+html:not(.js) .film-position,.static-scene .film-position{display:none}
 html:not(.js) .scene-aurora{animation:none}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
