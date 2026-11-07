@@ -30,6 +30,5 @@ Thumbs.db
 .rtt-cache/
 .rtt/
 CLAUDE.md
-.rtt/
-.rtt-cache/
-CLAUDE.md
+screenshot.py
+mobile_screenshots.py
