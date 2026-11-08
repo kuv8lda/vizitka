@@ -3,7 +3,6 @@
 (() => {
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const video = document.querySelector('video');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const shortViewport = matchMedia('(max-height: 600px), (max-width: 600px) and (max-height: 700px)');
   const staticScene = () => reduced.matches || shortViewport.matches;
@@ -110,10 +109,6 @@
   });
 
   function motionPreference() {
-    if (video) {
-      video.autoplay = !reduced.matches;
-      if (reduced.matches) video.pause();
-    }
     root.classList.toggle('reduced-motion', reduced.matches);
     root.classList.toggle('static-scene', staticScene());
     resetMagnetic();
