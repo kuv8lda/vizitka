@@ -2,24 +2,40 @@
 
 [Russian version](README-ru.md)
 
-A Python developer's portfolio website built with HTML, CSS, and JavaScript. No build tools or npm dependencies are required.
+A Python developer's portfolio website built with pure HTML, CSS, and JavaScript. No build tools, frameworks, or npm dependencies are required.
 
-## Main screen (Cinematic Scrolling)
-<img width="1440" height="900" alt="vizitka" src="https://github.com/user-attachments/assets/8e2932fb-9766-41ab-ad50-696122ed88e2" />
-Changing three frames with a parallax effect is implemented on the native 'position: sticky' and 'requestAnimationFrame'.
+## Demonstration
 
-**Adaptability** Full support for mobile devices. On screens smaller than 900px, the complex grid is rearranged into a convenient column.
-| Desktop | Mobile | | :---: | :---: | | ![Desktop](assets/portfolio-frame-2.png) | ![Mobile](assets/portfolio-390x844.png)
+**Frame 1: Main Screen (Python + Telegram Bot)**
+The first screen immediately demonstrates a working product: a video showing a Telegram bot processing an order. The cinematic scroll changes three frames using native `position: sticky` and `requestAnimationFrame`.
+<img width="1440" height="900" alt="Main screen" src="assets/portfolio-desktop.png" />
 
-**Project Section** Presentation of works in the form of Browser Frames with alternating sides (Z-pattern).
-![Projects](portfolio-work.png)
+**Frame 2: Admin Panel Orders**
+The second screen demonstrates the backend part of the ecosystem (Flask + SQLite) with a browser frame mockup.
+<img width="1440" height="900" alt="Admin Panel" src="assets/portfolio-frame-2.png" />
 
-## Technical features
-* **Zero Build Step:** The project is started by opening 'index.html' or through any static server. It does not require 'npm install'.
-* **Vanilla JS:** All logic (scroll frame switching, custom cursor, magnetic buttons) is written in pure JavaScript.
-* * **Accessibility (A11Y):** Support for keyboard navigation (Tab, Focus), semantic layout, hidden headers for screen readers.
-* * **Performance:** Animations are tied only to 'transform' and 'opacity'. Heavy scripts and images are loaded lazily ('loading="lazy"').
-* * **Reduced Motion:** If the user has motion restriction enabled in the OS, animations are automatically disabled and content is displayed in static.
+**Frame 3: This Portfolio Website**
+The third screen focuses on frontend skills: pure HTML, CSS, and Vanilla JS with dark theme and responsive animations.
+<img width="1440" height="900" alt="This website" src="assets/portfolio-frame-3.png" />
+
+**Process Section**
+A dedicated section explaining the workflow from idea to launch, giving potential clients confidence in the development process.
+<img width="1440" height="900" alt="Work Process" src="assets/portfolio-process.png" />
+
+### Mobile Adaptability
+Full support for mobile devices. On screens smaller than 900px, the complex grid and cinematic scroll rearrange into a convenient, readable column.
+
+| Main Screen | Admin Panel | Process |
+| :---: | :---: | :---: |
+| <img src="assets/portfolio-mobile-hero.png" width="250" alt="Mobile Main"> | <img src="assets/portfolio-mobile-frame-2.png" width="250" alt="Mobile Admin"> | <img src="assets/portfolio-mobile-process.png" width="250" alt="Mobile Process"> |
+
+## Technical Features
+
+* **Zero Build Step:** The project is started by simply opening `index.html` or through any static server. It does not require `npm install`.
+* **Vanilla JS:** All logic (cinematic frame switching on scroll, magnetic buttons) is written in pure JavaScript without heavy libraries.
+* **Accessibility (A11Y):** Support for keyboard navigation (Tab, Focus), semantic layout, and hidden headers for screen readers.
+* **Performance:** Animations are strictly tied to `transform` and `opacity` to avoid layout thrashing. Images are loaded lazily (`loading="lazy"`).
+* **Reduced Motion:** If the user has a motion restriction enabled in their OS (`prefers-reduced-motion`), animations are automatically disabled, the video pauses, and content is displayed sequentially in a static layout.
 
 ## Running locally
 
@@ -49,24 +65,6 @@ You can also open `index.html` without a server. An internet connection is requi
 As you scroll, JavaScript switches between three frames and updates the frame number and progress indicator. Links with a magnetic effect move toward the mouse pointer.
 
 When `prefers-reduced-motion` is enabled or on short screens, the frames appear one after another. The same order is preserved without JavaScript. With `prefers-reduced-motion`, video does not autoplay and the magnetic effect is disabled. The background animation runs for up to five seconds while visible; it is disabled on mobile screens, when reduced motion is enabled, and in forced-colors mode.
-
-## Screenshot
-
-`screenshot.py` requires Playwright and Chromium:
-
-```sh
-python3 -m venv .venv
-.venv/bin/pip install playwright
-.venv/bin/playwright install chromium
-```
-
-With the server running on port 8080, run:
-
-```sh
-.venv/bin/python screenshot.py
-```
-
-This command overwrites `assets/projects/vizitka.png` with a 1440 × 900 screenshot of the first screen.
 
 ## Checking changes
 
