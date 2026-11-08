@@ -6,6 +6,7 @@ A Python developer's portfolio website built with pure HTML, CSS, and JavaScript
 
 ## Demonstration
 The first screen immediately demonstrates a working product. Below is the end-to-end video: a customer places an order in Telegram, and it instantly appears in the admin panel.
+
 https://github.com/user-attachments/assets/31dadc71-5a85-493f-91d3-c46353c4af46
 
 **Frame 1: Main Screen (Python + Telegram Bot)**
